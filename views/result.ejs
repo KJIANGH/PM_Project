@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f0f8ff; }
+        .weather-card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
+        .history-section { margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <h1>Weather Results</h1>
+
+    <% if (weatherResults && weatherResults.length > 0) { %>
+        <% weatherResults.forEach(result => { %>
+            <div class="weather-card">
+                <h2><%= result.location %> - <%= result.date %></h2>
+                <p>Temperature: <%= result.temp_c %> °C</p>
+                <p>Condition: <%= result.condition %></p>
+            </div>
+        <% }) %>
+    <% } else { %>
+        <p>No weather data available.</p>
+    <% } %>
+
+    <p><a href="/">Go back to search page</a></p>
+</body>
+</html>
